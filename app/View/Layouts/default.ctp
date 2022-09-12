@@ -435,6 +435,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 			if(content=='') {
 				alert('This is required');
+				return false;
 			}
 
 			$.ajax({
