@@ -92,7 +92,7 @@
                                         <hr/>
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Modified</label>
+                                                <label style="font-weight:bold;">Last Logged</label>
                                             </div>
                                             <div class="col-md-8 col-6" id="p_last_logged">
                                                 <?php echo date('F j, Y g:i a', strtotime($profile['Users']['last_logged']));?>
