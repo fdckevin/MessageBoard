@@ -856,13 +856,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					$('#p_name').html(data['Users']['name']);
 					$('#p_email').html(data['Users']['email']);
 					if(data['Users']['birthdate']!='0000-00-00') {
-						$('#p_bdate').html(moment(data['Users']['birthdate']).format('MMMM DD YYYY'));
+						$('#p_bdate').html(moment(data['Users']['birthdate']).format('MMMM DD, YYYY'));
 					}
 					$('#p_gender').html(data['Users']['gender']);
 					$('#p_hobby').html(data['Users']['hobby']);
-					$('#p_created').html(moment(data['Users']['created']).format('MMMM Do YYYY, h:mm a'));
-					$('#p_modified').html(moment(data['Users']['modified']).format('MMMM Do YYYY, h:mm a'));
-					$('#p_last_logged').html(moment(data['Users']['last_logged']).format('MMMM Do YYYY, h:mm a'));
+					$('#p_created').html(moment(data['Users']['created']).format('MMMM DD, YYYY h:mm a'));
+					$('#p_modified').html(moment(data['Users']['modified']).format('MMMM DD, YYYY h:mm a'));
+					$('#p_last_logged').html(moment(data['Users']['last_logged']).format('MMMM DD, YYYY h:mm a'));
 
 
 					$('#ep_name').val(data['Users']['name']);
