@@ -523,7 +523,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 					var data = JSON.parse(data);
 
-					console.log(data);
+					if(data.success==1) {
+						alert(data.message);
+						$('#changePasswordForm')[0].reset();
+					}
 				},
 				error: function(jqXHR, error, status) {
 					console.log(error);
