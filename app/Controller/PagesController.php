@@ -144,16 +144,16 @@ class PagesController extends AppController {
 						'Users.email' => $this->request->data['email'], 'Users.password' => $password
 					)
 				));
-
-				$this->Users->read(null, $user[0]['Users']['id']);
-
-				$this->Users->set(array(
-					'last_logged' => date("Y-m-d H:i:s")
-				));  
-
-				$this->Users->save();
 	
 				if($this->Auth->login($user)) { 
+
+					$query = $this->Users->read(null, $user[0]['Users']['id']);
+
+					$this->Users->set(array(
+						'last_logged' => date("Y-m-d H:i:s")
+					));  
+
+					$this->Users->save();
 
 					return json_encode(array('success' => 1, 'message' => 'Logged in', 'data' => $this->Auth->user()));
 				} else {
