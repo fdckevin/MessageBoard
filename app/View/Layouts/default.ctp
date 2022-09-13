@@ -527,6 +527,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					if(data.success==1) {
 						alert(data.message);
 						$('#changePasswordForm')[0].reset();
+					} else {
+						alert(data.messageErr);
+						$('#changePasswordForm')[0].reset();
 					}
 				},
 				error: function(jqXHR, error, status) {

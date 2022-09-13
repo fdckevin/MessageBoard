@@ -442,7 +442,7 @@ class HomeController extends AppController {
 					}  
 
 				} else {
-					return json_encode(array('success' => 0, 'message' => 'This is not your current password'));
+					return json_encode(array('success' => 0, 'messageErr' => 'This is not your current password'));
 				}
 			}
 		}
