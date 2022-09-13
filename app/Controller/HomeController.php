@@ -327,7 +327,7 @@ class HomeController extends AppController {
 						$results .= '<img src='.$this->webroot.'/img/'.$image.' class="img-circle" height="65" width="65" alt="">';
 						$results .= '</div>';
 						$results .= '<div class="col-sm-10">';
-						$results .= '<h4 style="font-size: 16px;"><a href='.$this->webroot.'home/userprofile/'.$comment['Users']['id'].'>'.$comment['Users']['name'].'</a> '.date("F j, Y g:i a",strtotime($comment['Comments']['date'])).'</h4>';
+						$results .= '<h4 style="font-size: 16px;"><a href='.$this->webroot.'home/userprofile/'.$comment['Users']['id'].'>'.$comment['Users']['name'].'</a> <small>'.date("F j, Y g:i a",strtotime($comment['Comments']['date'])).'</small></h4>';
 						$results .= '<p>'.$comment['Comments']['content'].'</p>';
 						$results .= '<br>';
 						$results .= '</div>';
@@ -377,7 +377,7 @@ class HomeController extends AppController {
 						$results .= '<img src='.$this->webroot.'/img/'.$image.' class="img-circle" height="65" width="65" alt="">';
 						$results .= '</div>';
 						$results .= '<div class="col-sm-10">';
-						$results .= '<h4 style="font-size: 16px;">'.$comment['Users']['name'].' <small>'.date("F j, Y g:i a",strtotime($comment['Comments']['date'])).'</small></h4>';
+						$results .= '<h4 style="font-size: 16px;"><a href='.$this->webroot.'home/userprofile/'.$comment['Users']['id'].'>'.$comment['Users']['name'].'</a> <small>'.date("F j, Y g:i a",strtotime($comment['Comments']['date'])).'</small></h4>';
 						$results .= '<p>'.$comment['Comments']['content'].'</p>';
 						$results .= '<br>';
 						$results .= '</div>';
