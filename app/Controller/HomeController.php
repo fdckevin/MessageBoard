@@ -105,7 +105,7 @@ class HomeController extends AppController {
 					'name' => $profile['name'], 
 					'email' => $profile['email'], 
 					'gender' => $profile['gender'],
-					'birthdate' => $profile['birthdate'],
+					'birthdate' => date('Y-m-d', strtotime($profile['birthdate'])),
 					'hobby' => $profile['hobby'],
 					'modified' => date("Y-m-d H:i:s"),
 					'modified_ip' => $this->request->clientIp()

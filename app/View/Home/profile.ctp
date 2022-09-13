@@ -139,7 +139,7 @@
           </div>
           <div class="mb-3">
             <label for="birthdate">Birthdate:</label>
-            <input type="date" class="form-control" id="ep_bdate" name="birthdate">
+            <input type="text" class="form-control" id="ep_bdate" name="birthdate">
           </div>
            <div class="mb-3">
             <label for="birthdate">Gender:</label>

@@ -35,6 +35,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		echo $this->Html->css('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+		echo $this->Html->css('https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css');
+
 		echo $this->Html->css('mb.css');
 
 		echo $this->fetch('meta');
@@ -80,7 +82,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<?php echo $this->fetch('content'); ?>
 	</div>
 <?php echo $this->element('sql_dump'); ?> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" >
+    </script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" >
+    </script>
 <!-- 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -99,6 +104,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 			var counter = 5;
 			var counterComments = 5;
+
+			$( "#ep_bdate" ).datepicker({
+				 dateFormat: 'mm-dd-yy'
+			});
 
 			$('#btnShowMore').hide();
 			$('#btnShowMore2').hide();
