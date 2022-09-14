@@ -171,5 +171,7 @@ class PagesController extends AppController {
 
 	public function thankyou() {
 
+		
+
 	}
 }

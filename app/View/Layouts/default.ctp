@@ -106,7 +106,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			var counterComments = 5;
 
 			$( "#ep_bdate" ).datepicker({
-				 dateFormat: 'mm-dd-yy'
+				 dateFormat: 'yy-mm-dd',
+				 maxDate: -1 
 			});
 
 			$('#btnShowMore').hide();
@@ -275,6 +276,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				var email = $('#ep_email').val();
 				var bdate =	$('#ep_bdate').val();
 				var hobby = $('#ep_hobby').val();
+
 
 	            var message = "";
 
@@ -882,7 +884,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					$('#ep_email').val(data['Users']['email']);
 
 					if(data['Users']['birthdate']!='0000-00-00') {
-						$('#ep_bdate').val(moment(data['Users']['birthdate']).format('MM-DD-YYYY'));
+						$('#ep_bdate').val(moment(data['Users']['birthdate']).format('YYYY-MM-DD'));
 					}
 					$('#ep_hobby').val(data['Users']['hobby']);
 
