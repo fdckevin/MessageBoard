@@ -579,13 +579,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 						for(var i=0; i<data.length; i++) {
 
+							str = data[i]['Messages']['body'];
+
+							if(str.length >350) {
+								newStr = str.substring(0, 350) + '...';
+							} else {
+								newStr = str;
+							}
+
 							result+="<h2 class='mt-3'><a class='text-body' href='<?php echo $this->Html->url('/home/details/');?>"+data[i]['Messages']['id']+"'>"+data[i]['Messages']['title']+"</a></h2>";
 							if(loggedUserID==data[i]['Users']['id']) {
 								result+="<span class='text text-danger pull-right delete_message' id="+data[i]['Messages']['id']+"><i class='fa fa-trash-o' aria-hidden='true'></i></span>";
 							}
 							result+="<h5><i class='fa fa-clock-o' aria-hidden='true'></i> Posted by "+data[i]['Users']['name']+", "+moment(data[i]['Messages']['posted']).format('MMMM Do YYYY, h:mm a')+"</h5>";
 							result+=" <h5><span class='badge badge-dark'>"+data[i]['Recipients']['name']+"</span></h5><br>";
-							result+="<p>"+data[i]['Messages']['body']+"</p>";
+							result+="<p>"+newStr+"</p>";
 
 						}
 					} else {
@@ -669,13 +677,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 						for(var i=0; i<data.length; i++) {
 
+							str = data[i]['Messages']['body'];
+
+							if(str.length >350) {
+								newStr = str.substring(0, 350) + '...';
+							} else {
+								newStr = str;
+							}
+
 							result+="<h2 class='mt-3'><a class='text-body' href='<?php echo $this->Html->url('/home/details/');?>"+data[i]['Messages']['id']+"'>"+data[i]['Messages']['title']+"</a></h2>";
 							if(loggedUserID==data[i]['Users']['id']) {
 								result+="<span class='text text-danger pull-right delete_message' id="+data[i]['Messages']['id']+"><i class='fa fa-trash-o' aria-hidden='true'></i></span>";
 							}
 							result+="<h5><i class='fa fa-clock-o' aria-hidden='true'></i> Posted by "+data[i]['Users']['name']+", "+moment(data[i]['Messages']['posted']).format('MMMM Do YYYY, h:mm a')+"</h5>";
 							result+=" <h5><span class='badge badge-dark'>"+data[i]['Recipients']['name']+"</span></h5><br>";
-							result+="<p>"+data[i]['Messages']['body']+"</p>";
+							result+="<p>"+newStr+"</p>";
 
 						}
 					} else {
@@ -796,8 +812,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 							str = data[i]['Messages']['body'];
 
-							if(str.length > 565) {
-								newStr = str.substring(0, 565) + '...';
+							if(str.length >350) {
+								newStr = str.substring(0, 350) + '...';
 							} else {
 								newStr = str;
 							}
