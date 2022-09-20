@@ -15,7 +15,7 @@ const io = require('socket.io')(server, {
 
 io.on('connection', (socket) => {
   
-  socket.on('comment', () =>{
+  socket.on('comment', (room) =>{
     socket.to(room).emit("receive-comment");
   });
 

@@ -114,11 +114,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		<?php if(!empty($message)): ?>
 
-			var room = 1;
+			var room = <?php echo $message['Messages']['id'];?>
 
 			socket.emit("join", room);
 
-			room++;
 		<?php endif; ?>
 
 		$(document).ready(function(){
