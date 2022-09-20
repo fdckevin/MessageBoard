@@ -86,6 +86,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     </script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" >
     </script>
+     <script src="http://localhost:4000/socket.io/socket.io.js"></script>
 <!-- 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -98,12 +99,24 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 'X-CSRF-TOKEN': $('meta[name="myToken"]').attr('content')
             }
         });
-    </script>
+</script>
 	<script type="text/javascript">
+
+		var socket = io.connect('http://localhost:4000');
+
+	  socket.on('receive-comment', () => {
+	  	getComments();
+		});
+
+		socket.on('receive-message', () => {
+	  	getMessageLists();
+		});
+
 		$(document).ready(function(){
 
 			var counter = 5;
 			var counterComments = 5;
+			var socket = io.connect('http://localhost:4000');
 
 			$( "#ep_bdate" ).datepicker({
 				 dateFormat: 'yy-mm-dd',
@@ -394,7 +407,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	                    if(data.success==1) {
 
 	                    	alert(data.message);
-
+	                    	
 	                    	$('#messageForm')[0].reset();
 
 	                    	$('#messageModal').modal('hide');
@@ -407,7 +420,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 													dropdownParent: $('#messageModal')
 												});
 
-	                    	getMessageLists();
+	                    	socket.emit('message');
 
 	                    }
 	                },
@@ -463,7 +476,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					if(data.success==1) {
 						alert(data.message);
 						$('#commentForm')[0].reset();
-						getComments();
+						socket.emit('comment');
 					}
 
 				},
@@ -735,8 +748,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
               return false;
        }
 		});
-
-            
+     
 		});
 
 		function getComments() {
