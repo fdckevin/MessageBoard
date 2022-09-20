@@ -112,6 +112,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	  	getMessageLists();
 		});
 
+		<?php if(!empty($message)): ?>
+
+			var room = 1;
+
+			socket.emit("join", room);
+
+			room++;
+		<?php endif; ?>
+
 		$(document).ready(function(){
 
 			var counter = 5;
@@ -476,7 +485,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					if(data.success==1) {
 						alert(data.message);
 						$('#commentForm')[0].reset();
-						socket.emit('comment');
+						socket.emit('comment', room);
 					}
 
 				},
