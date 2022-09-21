@@ -116,7 +116,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 			var room = <?php echo $message['Messages']['id'];?>
 
-			socket.emit("join", room);
+			var user = <?php echo json_encode($loggedUser);?>
+
+			console.log(room+' '+user);
+
+
+			socket.emit("join", room, user);
 
 		<?php endif; ?>
 
@@ -484,7 +489,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					if(data.success==1) {
 						alert(data.message);
 						$('#commentForm')[0].reset();
-						socket.emit('comment', room);
+						console.log(user);
+						socket.emit('comment', room, user);
 					}
 
 				},

@@ -15,7 +15,8 @@ const io = require('socket.io')(server, {
 
 io.on('connection', (socket) => {
   
-  socket.on('comment', (room) =>{
+  socket.on('comment', (room, user) =>{
+    console.log(user+' sent a message in room '+room);
     socket.to(room).emit("receive-comment");
   });
 
@@ -23,8 +24,8 @@ io.on('connection', (socket) => {
     io.emit('receive-message');
   });
 
-   socket.on("join", (room) => {
-    console.log(room);
+   socket.on("join", (room, user) => {
+    console.log(user+' has joined room '+room);
     socket.join(room);
   });
 

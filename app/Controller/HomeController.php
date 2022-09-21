@@ -263,8 +263,9 @@ class HomeController extends AppController {
 		$data = $this->Auth->user();
 
 		$loggedUserID = $data[0]['Users']['id'];
+		$loggedUser = $data[0]['Users']['name'];
 
-		$this->set('loggedUserID', $loggedUserID);
+		$this->set(compact('loggedUserID', 'loggedUser'));
 	}
 
 	public function comment() {
